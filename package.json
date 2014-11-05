@@ -1,0 +1,42 @@
+{
+  "name": "stingray",
+  "version": "0.0.0",
+  "description": "Stingray gathers and distributes information and sends them as beacons to your server",
+  "main": "index.js",
+  "scripts": {
+    "test": "mochify --reporter spec --ui bdd ./test.js",
+    "coverage": "mochify --reporter spec --ui bdd --cover ./test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unshiftio/stingray"
+  },
+  "keywords": [
+    "stingray",
+    "beacon",
+    "debug",
+    "gather",
+    "intelligence",
+    "reporter"
+  ],
+  "author": "Arnout Kazemier",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unshiftio/stingray/issues"
+  },
+  "homepage": "https://github.com/unshiftio/stingray",
+  "testling": {
+    "files": "test.js",
+    "harness": "mocha-bdd"
+  },
+  "dependencies": {
+    "beacons": "0.0.x",
+    "querystringify": "0.0.x"
+  },
+  "devDependencies": {
+    "assume": "0.0.x",
+    "mochify": "1.7.x",
+    "pre-commit": "0.0.x",
+    "url-parse": "0.0.x"
+  }
+}

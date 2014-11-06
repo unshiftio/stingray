@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "mochify --reporter spec --ui bdd ./test.js",
-    "coverage": "mochify --reporter spec --ui bdd --cover ./test.js"
+    "coverage": "mochify --reporter spec --ui bdd --cover ./test.js",
+    "prepublish": "npm run coverage"
   },
   "repository": {
     "type": "git",

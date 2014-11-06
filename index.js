@@ -93,6 +93,29 @@ Stingray.prototype.add = function add(key, value) {
 };
 
 /**
+ * Remove assigned keys again from the internal dataset. Sometimes you just need
+ * to send data only once.
+ *
+ * @param {Arguments} ..args__ The keys that need to be removed.
+ * @returns {Stingray}
+ * @api private
+ */
+Stingray.prototype.remove = function remove() {
+  var args = arguments
+    , i, l;
+
+  if (args.length === 1 && 'string' === typeof args[0]) {
+    args = args[0].split(/[\,|\s]+/);
+  }
+
+  for (i = 0, l = args.length; i < l; i++) {
+    delete this.dataset[args[i]];
+  }
+
+  return this;
+};
+
+/**
  * Generate a payload that needs to be transmitted to the server.
  *
  * @returns {Object}

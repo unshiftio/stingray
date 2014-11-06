@@ -52,6 +52,45 @@ describe('stingray', function () {
     });
   });
 
+  describe('#remove', function () {
+    it('can remove added keys', function () {
+      stingray.add('foo', 'bar').add('bar', 'foo');
+
+      assume(stingray.dataset.foo).equals('bar');
+      assume(stingray.dataset.bar).equals('foo');
+
+      stingray.remove('foo');
+      assume(stingray.dataset.foo).equals(undefined);
+      assume(stingray.dataset.bar).equals('foo');
+    });
+
+    it('can remove multiple keys', function () {
+      stingray.add('foo', 'bar').add('bar', 'foo');
+
+      assume(stingray.dataset.foo).equals('bar');
+      assume(stingray.dataset.bar).equals('foo');
+
+      stingray.remove('foo', 'bar');
+      assume(stingray.dataset.foo).equals(undefined);
+      assume(stingray.dataset.bar).equals(undefined);
+    });
+
+    it('can remove multiple keys if first arg is space/comma separated', function () {
+      stingray.add('foo', 'bar').add('bar', 'foo');
+
+      assume(stingray.dataset.foo).equals('bar');
+      assume(stingray.dataset.bar).equals('foo');
+
+      stingray.remove('foo, bar');
+      assume(stingray.dataset.foo).equals(undefined);
+      assume(stingray.dataset.bar).equals(undefined);
+    });
+
+    it('chains', function () {
+      assume(stingray.remove('foo', 'bar')).equals(stingray);
+    });
+  });
+
   describe('#payload', function () {
     it('returns an object', function () {
       var data = stingray.payload();
@@ -102,6 +141,18 @@ describe('stingray', function () {
 
       stingray.add('foo', 'bar');
       assume(stingray.payload().foo).equals('bar');
+    });
+
+    it('includes performance information when available', function () {
+      var perf = global.performance;
+      global.performance = { timing: { shizzle: 'mynizzle' }, memory: { leak: 'it' }};
+
+      var data = stingray.payload();
+
+      assume(data.shizzle).equals('mynizzle');
+      assume(data.leak).equals('it');
+
+      global.performance = perf;
     });
   });
 

@@ -80,14 +80,14 @@ Stingray.prototype.write = function write(fn) {
 };
 
 /**
- * Add additional custom information to the payload.
+ * Set additional custom information to the payload.
  *
  * @param {String} key Name of the value.
  * @param {String} value Value that needs to be stored.
  * @returns {Stingray}
  * @api public
  */
-Stingray.prototype.add = function add(key, value) {
+Stingray.prototype.set = function set(key, value) {
   this.dataset[key] = value;
   return this;
 };

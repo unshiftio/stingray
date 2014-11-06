@@ -76,11 +76,11 @@ instance.
 stingray = new Stingray(server, { /* options, which are optional */ });
 ```
 
-### Stingray.add
+### Stingray.set
 
 There's already a lot of default debug information available but you might want
-to add some addition information that specific to your application or you just
-want to override some default values. The `Stingray.add` method accepts 2
+to set some addition information that specific to your application or you just
+want to override some default values. The `Stingray.set` method accepts 2
 arguments:
 
 1. `key`: The name of key you want to store or override.
@@ -91,13 +91,13 @@ arguments:
 This method returns it self once it's executed so you can chain it if you wish.
 
 ```js
-stingray.add('foo', 'bar')
-        .add('bar', 'foo');
+stingray.set('foo', 'bar')
+        .set('bar', 'foo');
 ```
 
 ### Stingray.remove
 
-Now that you can add new information to the beacon request it's also good to
+Now that you can set new information to the beacon request it's also good to
 know that you can remove it as well. The remove method accepts the keys of
 values that you want to remove from the internal dataset. You can supply it with
 multiple arguments to remove multiple keys:

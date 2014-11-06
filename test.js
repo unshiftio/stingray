@@ -30,31 +30,31 @@ describe('stingray', function () {
     });
   });
 
-  describe('#add', function () {
-    it('adds items to the internal data set', function () {
+  describe('#set', function () {
+    it('sets items to the internal data set', function () {
       assume(stingray.dataset).is.a('object');
       assume(stingray.dataset.foo).equals(undefined);
 
-      stingray.add('foo', 'bar');
+      stingray.set('foo', 'bar');
       assume(stingray.dataset.foo).equals('bar');
     });
 
     it('overrides existing values', function () {
-      stingray.add('foo', 'bar');
+      stingray.set('foo', 'bar');
       assume(stingray.dataset.foo).equals('bar');
 
-      stingray.add('foo', 'foo');
+      stingray.set('foo', 'foo');
       assume(stingray.dataset.foo).equals('foo');
     });
 
     it('chains', function () {
-      assume(stingray.add('foo', 'bar')).equals(stingray);
+      assume(stingray.set('foo', 'bar')).equals(stingray);
     });
   });
 
   describe('#remove', function () {
     it('can remove added keys', function () {
-      stingray.add('foo', 'bar').add('bar', 'foo');
+      stingray.set('foo', 'bar').set('bar', 'foo');
 
       assume(stingray.dataset.foo).equals('bar');
       assume(stingray.dataset.bar).equals('foo');
@@ -65,7 +65,7 @@ describe('stingray', function () {
     });
 
     it('can remove multiple keys', function () {
-      stingray.add('foo', 'bar').add('bar', 'foo');
+      stingray.set('foo', 'bar').set('bar', 'foo');
 
       assume(stingray.dataset.foo).equals('bar');
       assume(stingray.dataset.bar).equals('foo');
@@ -76,7 +76,7 @@ describe('stingray', function () {
     });
 
     it('can remove multiple keys if first arg is space/comma separated', function () {
-      stingray.add('foo', 'bar').add('bar', 'foo');
+      stingray.set('foo', 'bar').set('bar', 'foo');
 
       assume(stingray.dataset.foo).equals('bar');
       assume(stingray.dataset.bar).equals('foo');
@@ -135,11 +135,11 @@ describe('stingray', function () {
       assume(stingray.payload().domain).does.not.equal(data.domain);
     });
 
-    it('adds the custom values from the .add command', function () {
-      stingray.add('domain', 'bar');
+    it('setss the custom values from the .set command', function () {
+      stingray.set('domain', 'bar');
       assume(stingray.payload().domain).equals('bar');
 
-      stingray.add('foo', 'bar');
+      stingray.set('foo', 'bar');
       assume(stingray.payload().foo).equals('bar');
     });
 

@@ -95,6 +95,31 @@ stingray.add('foo', 'bar')
         .add('bar', 'foo');
 ```
 
+### Stingray.remove
+
+Now that you can add new information to the beacon request it's also good to
+know that you can remove it as well. The remove method accepts the keys of
+values that you want to remove from the internal dataset. You can supply it with
+multiple arguments to remove multiple keys:
+
+```js
+stingray.remove('foo', 'bar');
+```
+
+But you can also use space/comma separation in the first argument to instruct
+multiple key removal.
+
+```js
+stingray.remove('foo, bar');
+```
+
+It also chains, so you can use that as an alternate api as well:
+
+```js
+stingray.remove('foo')
+        .remove('bar');
+```
+
 ### Stingray.write
 
 This is where all the magic actually happens. When you call the `Stingray.write`

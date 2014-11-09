@@ -1,5 +1,7 @@
 # Stingray
 
+[![Made by unshift](https://img.shields.io/badge/made%20by-unshift-00ffcc.svg?style=flat-square)](http://unshift.io)[![Version npm](http://img.shields.io/npm/v/stingray.svg?style=flat-square)](http://browsenpm.org/package/stingray)[![Build Status](http://img.shields.io/travis/unshiftio/stingray/master.svg?style=flat-square)](https://travis-ci.org/unshiftio/stingray)[![Dependencies](https://img.shields.io/david/unshiftio/stingray.svg?style=flat-square)](https://david-dm.org/unshiftio/stingray)[![Coverage Status](http://img.shields.io/coveralls/unshiftio/stingray/master.svg?style=flat-square)](https://coveralls.io/r/unshiftio/stingray?branch=master)[![IRC channel](http://img.shields.io/badge/IRC-irc.freenode.net%23unshift-00a8ff.svg?style=flat-square)](http://webchat.freenode.net/?channels=unshift)
+
 Stingray is a small beacon library that can send small packets of information to
 your server. This can be really helpful to get some insight in how your
 front-end application is running and can provide additional information when

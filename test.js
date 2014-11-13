@@ -1,6 +1,38 @@
 describe('stingray', function () {
   'use strict';
 
+  //
+  // Introduce some globals as this library should run in browsers only unless
+  // we polyfill/mock some browser things.
+  //
+  global.Image = require('beacons/image');
+  global.navigator = {
+    cookieEnabled: true,
+    language: 'en-US',
+    productSub: '20030107',
+    product: 'Gecko',
+    appCodeName: 'Mozilla',
+    mimeTypes: { length: 0 },
+    vendorSub: '',
+    vendor: 'Apple Computer, Inc.',
+    platform: 'MacIntel',
+    appName: 'Netscape',
+    appVersion: '5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34',
+    userAgent: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34',
+    plugins: { length: 0 },
+    onLine: false
+  };
+
+  global.document =  {
+    charset: 'UTF-8',
+    domain: 'localhost',
+    inputEncoding: 'UTF-8',
+    readyState: 'complete',
+    referrer: '',
+    URL: 'http://localhost:52091/?brout',
+    visibility: undefined
+  };
+
   var qs = require('querystringify')
     , parse = require('url-parse')
     , assume = require('assume')

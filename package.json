@@ -4,9 +4,10 @@
   "description": "Stingray gathers and distributes information and sends them as beacons to your server",
   "main": "index.js",
   "scripts": {
-    "test": "mochify --reporter spec --ui bdd ./test.js",
-    "coverage": "mochify --reporter spec --ui bdd --cover ./test.js",
-    "prepublish": "npm run coverage"
+    "test": "mocha --reporter spec --ui bdd test.js",
+    "watch": "mocha --watch --reporter spec --ui bdd test.js",
+    "coverage": "istanbul cover ./node_modules/.bin/_mocha -- --reporter spec --ui bdd test.js",
+    "test-travis": "istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --ui bdd test.js"
   },
   "repository": {
     "type": "git",
@@ -36,7 +37,9 @@
   },
   "devDependencies": {
     "assume": "0.0.x",
-    "mochify": "1.7.x",
+    "beacons": "0.0.1",
+    "istanbul": "0.3.x",
+    "mocha": "2.0.x",
     "pre-commit": "0.0.x",
     "url-parse": "0.0.x"
   }

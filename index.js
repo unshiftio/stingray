@@ -1,6 +1,7 @@
 'use strict';
 
-var has = Object.prototype.hasOwnProperty
+var EventEmitter = require('eventemitter3')
+  , has = Object.prototype.hasOwnProperty
   , qs = require('querystringify')
   , beacon = require('beacons');
 
@@ -60,6 +61,9 @@ function Stingray(server, options) {
   this.dataset = options.dataset || {};
 }
 
+Stingray.prototype = new EventEmitter();
+Stingray.prototype.constructor = Stingray;
+
 /**
  * The actual method which starts sending data to the server.
  *
@@ -68,14 +72,20 @@ function Stingray(server, options) {
  * @api public
  */
 Stingray.prototype.write = function write(fn) {
-  var url = this.server + qs.stringify(this.payload(), true)
-    , document = this.document
+  var target
     , object
-    , target;
+    , stingray = this
+    , document = stingray.document
+    , url = stingray.server + qs.stringify(stingray.payload(), true);
 
-  if (url.length > this.limit) return false;
+  if (url.length > stingray.limit) return false;
 
-  beacon(url, fn, this.timeout);
+  beacon(url, function sent(err) {
+    if (err) stingray.emit('error', err);
+
+    fn.apply(this, arguments);
+  }, stingray.timeout);
+
   return true;
 };
 
@@ -137,7 +147,7 @@ Stingray.prototype.payload = function payload() {
     // Windows phone is known to throw errors when document.domain is accessed.
     //
     try { domain = document.domain; }
-    catch (e) {}
+    catch (e) { this.emit('error', e); }
 
     dataset.push({
       charset: document.charset,

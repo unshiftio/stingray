@@ -1,3 +1,4 @@
+/* istanbul ignore next */
 describe('stingray', function () {
   'use strict';
 

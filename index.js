@@ -13,7 +13,8 @@ var EventEmitter = require('eventemitter3')
  * @type {Number}
  * @private
  */
-var limit = /([MS]?IE).\d/.test(navigator.userAgent) ? 2083 : 60000;
+var nav = 'undefined' !== typeof navigator ? navigator : {}
+  , limit = /([MS]?IE).\d/.test(navigator.userAgent) ? 2083 : 60000;
 
 /**
  * Stingray.

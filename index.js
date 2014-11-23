@@ -50,7 +50,7 @@ function Stingray(server, options) {
   options = options || {};
 
   this.server = server;
-  this.document = options.document || document;
+  this.document = options.document || global.document || {};
   this.limit = options.limit || limit;
   this.ignore = options.ignore || {};
   this.timeout = options.timeout;

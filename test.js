@@ -46,6 +46,10 @@ describe('stingray', function () {
     stingray = new Stingray(server);
   });
 
+  afterEach(function () {
+    stingray.destroy();
+  });
+
   it('is exported a function', function () {
     assume(Stingray).is.a('function');
   });
@@ -200,6 +204,17 @@ describe('stingray', function () {
 
     it('returns true if its successfully written', function () {
       assume(stingray.write()).is.true();
+    });
+  });
+
+  describe('#destroy', function () {
+    it('returns true on first destroy', function () {
+      assume(stingray.destroy()).is.true();
+    });
+
+    it('returns false on second destroy', function () {
+      assume(stingray.destroy()).is.true();
+      assume(stingray.destroy()).is.false();
     });
   });
 });

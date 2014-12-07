@@ -199,6 +199,25 @@ Stingray.prototype.payload = function payload() {
   return data;
 };
 
+/**
+ * Destroy the stingray instance.
+ *
+ * @returns {Boolean}
+ * @api public
+ */
+Stingray.prototype.destroy = function destroy() {
+  if (!this.dataset) return false;
+
+  var nulled = 'server,document,limit,ignore,timeout,dataset'.split(',')
+    , i = 0;
+
+  for (; i < nulled.length; i++) {
+    this[nulled[i]] = null;
+  }
+
+  return true;
+};
+
 //
 // Expose the module.
 //

@@ -1,6 +1,6 @@
 {
   "name": "stingray",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Stingray gathers and distributes information and sends them as beacons to your server",
   "main": "index.js",
   "scripts": {

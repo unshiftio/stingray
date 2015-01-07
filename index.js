@@ -3,7 +3,7 @@
 var EventEmitter = require('eventemitter3')
   , has = Object.prototype.hasOwnProperty
   , qs = require('querystringify')
-  , demolish = require('demolish')
+  , destroy = require('demolish')
   , beacon = require('beacons');
 
 /**
@@ -207,7 +207,7 @@ Stingray.prototype.payload = function payload() {
  * @returns {Boolean}
  * @api public
  */
-Stingray.prototype.destroy = demolish('server document limit ignore timeout dataset');
+Stingray.prototype.destroy = destroy('server document limit ignore timeout dataset');
 
 //
 // Expose the module.

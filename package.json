@@ -36,7 +36,7 @@
     "beacons": "0.0.x",
     "demolish": "1.0.x",
     "eventemitter3": "~2.0.2",
-    "querystringify": "0.0.x"
+    "querystringify": "~1.0.0"
   },
   "devDependencies": {
     "assume": "~1.4.1",

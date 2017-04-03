@@ -39,7 +39,7 @@
     "querystringify": "~1.0.0"
   },
   "devDependencies": {
-    "assume": "~1.4.1",
+    "assume": "~1.5.0",
     "beacons": "0.0.x",
     "istanbul": "~0.4.5",
     "mocha": "~3.2.0",

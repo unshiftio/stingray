@@ -2,6 +2,7 @@
 
 var EventEmitter = require('eventemitter3')
   , has = Object.prototype.hasOwnProperty
+  , inherits = require('inherits')
   , qs = require('querystringify')
   , destroy = require('demolish')
   , beacon = require('beacons');
@@ -48,6 +49,8 @@ var nav = 'undefined' !== typeof navigator ? navigator : {}
  */
 function Stingray(server, options) {
   if (!(this instanceof Stingray)) return new Stingray(server, options);
+
+  EventEmitter.call(this);
   options = options || {};
 
   this.server = server;
@@ -63,8 +66,7 @@ function Stingray(server, options) {
   this.dataset = options.dataset || {};
 }
 
-Stingray.prototype = new EventEmitter();
-Stingray.prototype.constructor = Stingray;
+inherits(Stingray, EventEmitter);
 
 /**
  * The actual method which starts sending data to the server.

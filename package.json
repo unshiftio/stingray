@@ -35,7 +35,7 @@
   "dependencies": {
     "beacons": "0.0.x",
     "demolish": "1.0.x",
-    "eventemitter3": "~4.0.0",
+    "eventemitter3": "~4.0.4",
     "inherits": "~2.0.3",
     "querystringify": "~2.1.0"
   },
